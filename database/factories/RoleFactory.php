@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,17 @@ class RoleFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    
+     protected $model = Role::class;
+
+
     public function definition(): array
     {
-        return [
-            //
+        return [    
+            'name' => $this->faker->unique()->jobTitle(),
+            'guard_name' => 'web',
+            'description' => $this->faker->sentence()
         ];
     }
 }
